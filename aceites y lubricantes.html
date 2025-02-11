@@ -92,8 +92,8 @@
             transition: background-color 0.3s ease; /* Añade una transición suave al hover */
         }
         .marca img {
-            width: 55Px; /* Aumenta el tamaño de la imagen */
-            height: 55px; /* Aumenta el tamaño de la imagen */
+            width: 60px; /* Aumenta el tamaño de la imagen */
+            height: 60px; /* Aumenta el tamaño de la imagen */
             border-radius: 0%; /* Mantiene las imágenes redondas */
         }
         .marca:hover {
@@ -197,44 +197,27 @@
     </div>
 
     <div class="marca-lista">
-        <button class="marca" onclick="filtrarPorMarca('Honda')">
-            <img src="imagenes/honda_logo.png.png" alt="Honda"> Honda
+        <button class="marca" onclick="window.location.href=('index.html')">
+            <img src="imagenes/full m.png"  alt="inicio"> Inicio
         </button>
-        <button class="marca" onclick="filtrarPorMarca('Yamaha')">
-            <img src="imagenes/png-transparent-yamaha-logo-yamaha-motor-company-logo-yamaha-corporation-motorcycle-yamaha-company-symmetry-transport-thumbnail-removebg-preview.png" alt="Yamaha"> Yamaha
+        <button class="marca" onclick="filtrarPorMarca('LIQUI MOLY')">
+            <img src="imagenes/Liqui-Moly-Logo-removebg-preview.png" alt="LIQUI MOLY"> LIQUI MOLY
         </button>
-        <button class="marca" onclick="filtrarPorMarca('Suzuki')">
-            <img src="imagenes/png-transparent-suzuki-car-decal-motorcycle-helmets-suzuki-angle-text-rectangle-thumbnail-removebg-preview.png" alt="Suzuki"> Suzuki
+        <button class="marca" onclick="filtrarPorMarca('RALOY')">
+            <img src="imagenes/OIP-removebg-preview.png" alt="RALOY"> RALOY
         </button>
-        <button class="marca" onclick="filtrarPorMarca('Kawasaki')">
-            <img src="imagenes/png-transparent-car-kawasaki-motorcycles-logo-side-by-side-suzuki-text-trademark-motorcycle-thumbnail-removebg-preview.png" alt="Kawasaki"> Kawasaki
-        </button>
-        <button class="marca" onclick="filtrarPorMarca('Serpentor')">
-            <img src="imagenes/Serpento-logo-200px.webp" alt="Serpentor"> Serpento
-        </button>
-        <button class="marca" onclick="filtrarPorMarca('Bajaj')">
-            <img src="imagenes/R-removebg.png" alt="Bajaj"> Bajaj
-        </button>
-        <button class="marca" onclick="filtrarPorMarca('Genesis')">
-            <img src="imagenes/328288843_1225923818341714_2679260450084512857_n-removebg-preview.png" alt="Genesis"> Genesis
-        </button>
-        <button class="marca" onclick="filtrarPorMarca('Hero')">
-            <img src="imagenes/Hero-MotoCorp-Emblem.png" alt="Hero"> Hero
-        </button>
-        <button class="marca" onclick="filtrarPorMarca('TVS')">
-            <img src="imagenes/tvs-logo-tvs-icon-transparent-png-free-vector-removebg.png" alt="TVS"> TVS 
-        </button>
-        <button class="marca" onclick="filtrarPorMarca('AKT')">
-            <img src="imagenes/469895564_984690213694465_3243803935590719674_n-removebg-preview.png" alt="AKT"> AKT
+        <button class="marca" onclick="filtrarPorMarca('MOTUL')">
+            <img src="imagenes/motul_logo_png_1.png" alt="MOTUL"> MOTUL
         </button>
         <button class="marca" onclick="window.location.href=('aceites y lubricantes.html')">
             <img src="imagenes/oil motor.png " alt="Acites y Lubricante"> Acites y Lubricante
         </button>
         <button class="marca" onclick="window.location.href=('aceesorios.html')">
-            <img src="imagenes/accesorios_para_moto-removebg-preview.png" alt="Accesorios"> Accesorios
+            <img src="imagenes/accesorios_para_moto-removebg-preview.png" alt="Accesorios"> Accesorios    
         </button>
         <button class="marca" onclick="mostrarTodo()">Mostrar Todo</button>
-        
+      
+       
     </div>
 
     <div class="catalogo-container" id="catalogo"></div>
@@ -244,21 +227,9 @@
     </footer>
 
     <script>
-        // Lista de productos y marcas
-        const productos = ["Freno de Disco", "Cadena", "Neumático", "Escape", "Amortiguador", "Filtro de Aire"];
-        const marcas = ["Honda", "Yamaha", "Suzuki", "Kawasaki", "Serpentor", "Bajaj", "Genesis", "Hero", "TVS", "AKT"];
-    
-        // Objeto que asigna precios fijos a cada producto
-        const precios = {
-            "Freno de Disco": 80,
-            "Cadena": 50,
-            "Neumático": 120,
-            "Escape": 90,
-            "Amortiguador": 110,
-            "Filtro de Aire": 35
-        };
-    
-        // Generar el catálogo con precios fijos
+        const productos = ["EJEMPLO1", "EJEMPLO2", "EJEMPLO3",];
+        const marcas = ["LIQUI MOLY", "RALOY", "MOTUL", ];
+
         marcas.forEach(marca => {
             productos.forEach(producto => {
                 document.getElementById("catalogo").innerHTML += `
@@ -266,22 +237,22 @@
                         <img src="https://via.placeholder.com/250" alt="${producto} ${marca}">
                         <h3>${producto} ${marca}</h3>
                         <p>${producto} de alta calidad para motocicletas ${marca}.</p>
-                        <p class="precio">$${precios[producto]}.00</p>
+                        <p class="precio">$${Math.floor(Math.random() * 100) + 30}.00</p>
                     </div>
                 `;
             });
         });
-    
+
         function filtrarPorMarca(marca) {
             document.querySelectorAll('.producto').forEach(producto => {
                 producto.style.display = producto.getAttribute('data-marca') === marca ? 'block' : 'none';
             });
         }
-    
+
         function mostrarTodo() {
             document.querySelectorAll('.producto').forEach(producto => producto.style.display = 'block');
         }
-    
+
         function filtrarPorBusqueda() {
             const busqueda = document.getElementById('busqueda').value.toLowerCase();
             document.querySelectorAll('.producto').forEach(producto => {
@@ -290,6 +261,7 @@
             });
         }
     </script>
+   
    <a href="https://www.facebook.com/profile.php?id=61572292245444" 
     class="facebook-button" target="_blank">
      <i class="fab fa-facebook-f"></i>

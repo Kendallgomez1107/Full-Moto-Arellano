@@ -20,6 +20,17 @@
             padding: 20px;
             font-size: 1.5rem;
         }
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
         .catalogo-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -75,6 +86,7 @@
             display: flex;
             flex-wrap: wrap; /* Para que los botones se ajusten si no caben en una sola línea */
             justify-content: center; /* Centra los botones */
+            transition: max-height 0.3s ease-in-out;
         }
         .marca {
             background-color: #222;
@@ -184,10 +196,30 @@
     .facebook-button:hover .facebook-tooltip {
         display: block;
     }
+    @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .marca-lista {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background: #222;
+                padding: 10px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+            .marca-lista.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
         <h1>Catálogo de Repuestos para Motos</h1>
         <p>Encuentra los mejores repuestos para tu moto</p>
     </header>
@@ -196,7 +228,7 @@
         <input type="text" id="busqueda" placeholder="Buscar repuesto..." oninput="filtrarPorBusqueda()">
     </div>
 
-    <div class="marca-lista">
+    <div class="marca-lista" id="marcaLista">
         <button class="marca" onclick="window.location.href=('index.html')">
             <img src="imagenes/full m.png"  alt="inicio"> Inicio
         </button>
@@ -242,6 +274,10 @@
                 `;
             });
         });
+        
+        function toggleMenu() {
+            document.getElementById('marcaLista').classList.toggle('active');
+        }
 
         function filtrarPorMarca(marca) {
             document.querySelectorAll('.producto').forEach(producto => {
